@@ -35,6 +35,7 @@
 
 </div>
 
+@if(auth()->user()->role == 'operator')
 <div id="addModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
   <div class="modal-dialog" role="document">
@@ -134,6 +135,7 @@
   </div>
 
 </div>
+@endif
 
 <div id="showModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
@@ -205,8 +207,7 @@
 
 </div>
 
-</div>
-
+@if(auth()->user()->role == 'operator')
 <div id="editModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 
   <div class="modal-dialog" role="document">
@@ -308,6 +309,7 @@
   </div>
 
 </div>
+@endif
 @endsection
 
 
@@ -358,6 +360,7 @@
       })
     });
 
+    @if(auth()->user()->role == 'operator')
     $('#addButton').on('click', function () {
       $('#addForm').trigger('reset');
 
@@ -736,6 +739,7 @@
         }
       });
     });
+    @endif
 
   });
 </script>

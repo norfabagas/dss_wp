@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Teacher;
+use App\Grade;
 use Validator;
 use DataTables;
 
@@ -21,11 +22,17 @@ class TeacherController extends Controller
 
         return DataTables::of($teachers)
           ->addColumn('action', function ($teachers) {
-            return '
-              <button class="btn btn-default show" data-id="'.$teachers->id.'"><i class="fa fa-eye"></i></button>
-              <button class="btn btn-info edit" data-id="'.$teachers->id.'"><i class="fa fa-eraser"></i></button>
-              <button class="btn btn-danger delete" data-id="'.$teachers->id.'"><i class="fa fa-trash"></i></button>
-            ';
+            if (auth()->user()->role == 'operator') {
+              return '
+                <button class="btn btn-default show" data-id="'.$teachers->id.'"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-info edit" data-id="'.$teachers->id.'"><i class="fa fa-pencil-alt"></i></button>
+                <button class="btn btn-danger delete" data-id="'.$teachers->id.'"><i class="fa fa-trash"></i></button>
+              ';
+            } else {
+              return '
+                <button class="btn btn-default show" data-id="'.$teachers->id.'"><i class="fa fa-eye"></i></button>
+              ';
+            }
           })
           ->make(true);
     }
@@ -85,6 +92,24 @@ class TeacherController extends Controller
           $teacher->ttl = $request->ttl;
           $teacher->masa_kerja = $request->masa_kerja;
           $teacher->save();
+
+          $grade = new Grade;
+          $grade->teacher_id = $teacher->id;
+          $grade->c1 = 0;
+          $grade->c2 = 0;
+          $grade->c3 = 0;
+          $grade->c4 = 0;
+          $grade->c5 = 0;
+          $grade->c6 = 0;
+          $grade->c7 = 0;
+          $grade->c8 = 0;
+          $grade->c9 = 0;
+          $grade->c10 = 0;
+          $grade->c11 = 0;
+          $grade->c12 = 0;
+          $grade->c13 = 0;
+          $grade->c14 = 0;
+          $grade->save();
 
           return response()->json([
             'msg' => $teacher,

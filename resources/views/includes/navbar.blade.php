@@ -13,6 +13,20 @@
     </a>
   </li>
 
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('dashboard/criteria') }}">
+      <i class="fa fa-fw fa-table"></i>
+      <span>Kelola Kriteria</span>
+    </a>
+  </li>
+
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url('dashboard/grade') }}">
+      <i class="fas fa-fw fa-file"></i>
+      <span>Kelola Penilaian</span>
+    </a>
+  </li>
+
   <!-- <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <i class="fas fa-fw fa-folder"></i>

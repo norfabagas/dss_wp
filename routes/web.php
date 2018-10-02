@@ -11,10 +11,24 @@
 |
 */
 
+Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout');
+// Route::get('/home', 'HomeController@index')->name('home');
+
 Route::get('/', function () {
-    return view('welcome');
+  if (auth()->check()) {
+    return redirect('dashboard');
+  } else {
+    return redirect('login');
+  }
 });
 
-Auth::routes();
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+  // Dashboard
+  Route::get('/', 'DashboardController@index');
+  Route::get('/teacher', 'DashboardController@teacher');
 
-Route::get('/home', 'HomeController@index')->name('home');
+  // Teacher json
+  Route::get('/teacher/table', 'TeacherController@table')->name('teacher');
+  Route::resource('/teacher/json', 'TeacherController');
+});

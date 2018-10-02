@@ -17,10 +17,26 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->enum('role', ['operator', 'penyeleksi']);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
+
+        DB::table('users')->insert([
+          [
+            'name' => 'operator',
+            'email' => 'operator@mail.com',
+            'role' => 'operator',
+            'password' => bcrypt('katakunci'),
+          ],
+          [
+            'name' => 'penyeleksi',
+            'email' => 'penyeleksi@mail.com',
+            'role' => 'penyeleksi',
+            'password' => bcrypt('katakunci'),
+          ]
+        ]);
     }
 
     /**

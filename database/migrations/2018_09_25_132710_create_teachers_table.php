@@ -32,16 +32,16 @@ class CreateTeachersTable extends Migration
         DB::table('teachers')->insert([
           [
             'nip' => '197907202003121002',
-            'nama'=> 'Khurnia widhi arini S.Pd',
-            'golongan'=> 'IV A',
-            'pangkat'=> 'Pembina',
-            'alamat'=> 'jl.bulusan selatan 1, no.22 tembalang',
-            'tmt'=>date('2015-09-01'),
-            'gender'=>'p',
-            'pendidikan'=>'S1/PAI',
-            'jam_mengajar'=>24,
-            'ttl'=>'magelang, 30/06/1993',
-            'masa_kerja'=>'2 tahun 3 bulan',
+            'nama' => 'Khurnia widhi arini S.Pd',
+            'golongan' => 'IV A',
+            'pangkat' => 'Pembina',
+            'alamat' => 'jl.bulusan selatan 1, no.22 tembalang',
+            'tmt' => date('2015-09-01'),
+            'gender' => 'p',
+            'pendidikan' => 'S1/PAI',
+            'jam_mengajar' => 24,
+            'ttl' => 'magelang, 30/06/1993',
+            'masa_kerja' => '2 tahun 3 bulan',
           ]
         ]);
     }

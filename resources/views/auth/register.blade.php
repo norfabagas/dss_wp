@@ -39,6 +39,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                            <label for="role" class="col-md-4 control-label">User Role</label>
+
+                            <div class="col-md-6">
+                                <select id="role" class="form-control" name="role" required>
+                                  <option value="">Select role</option>
+                                  <option value="operator">Operator</option>
+                                  <option value="penyeleksi">Penyeleksi</option>
+                                </select>
+
+                                @if ($errors->has('role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">Password</label>
 

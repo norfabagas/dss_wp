@@ -11,9 +11,11 @@
 
   <div class="card-header">
     Kelola Guru
+    @if(auth()->user()->role == 'operator')
     <button id="addButton" style="float: right;" class="btn btn-sm btn-success" data-toggle="modal" data-target="#addModal">
       <i class="fa fa-plus"></i>
     </button>
+    @endif 
   </div>
 
   <div class="card-body">

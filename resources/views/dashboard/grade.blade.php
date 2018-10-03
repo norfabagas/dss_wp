@@ -11,15 +11,17 @@
   </div>
 
   <div class="card-body">
-    <table id="table" class="table table-bordered">
-      <thead>
-        <tr>
-          <td>NIP</td>
-          <td>Nama</td>
-          <td>Aksi</td>
-        </tr>
-      </thead>
-    </table>
+    <div class="table-responsive">
+      <table id="table" class="table table-bordered">
+        <thead>
+          <tr>
+            <td>NIP</td>
+            <td>Nama</td>
+            <td>Aksi</td>
+          </tr>
+        </thead>
+      </table>
+    </div>
   </div>
 </div>
 

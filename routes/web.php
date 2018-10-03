@@ -29,6 +29,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
   Route::get('/teacher', 'DashboardController@teacher');
   Route::get('/criteria', 'DashboardController@criteria');
   Route::get('/grade', 'DashboardController@grade');
+  Route::get('/ranking', 'DashboardController@ranking');
 
   // Teacher json
   Route::get('/teacher/table', 'TeacherController@table')->name('teacher');

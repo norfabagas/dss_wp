@@ -7,7 +7,7 @@
   </div>
 
   <div class="card-body">
-    Selamat Datang di {{ env('APP_NAME') }}
+    Selamat Datang di {{ config('app.name') }}
   </div>
 </div>
 
